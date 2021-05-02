@@ -1,4 +1,4 @@
-import 'dart:math';
+
 import 'package:topfilmes/movie.dart';
 import 'package:topfilmes/movie_model.dart';
 
@@ -8,6 +8,6 @@ class MovieController {
   Future<Movie> get movie => model.movie;
 
   loadMovies() {
-    model.fecthMovies();
+    model.fecthMovie();
   }
 }

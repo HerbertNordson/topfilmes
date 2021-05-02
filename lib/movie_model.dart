@@ -6,7 +6,7 @@ class MovieModel {
 
   Future<Movie> get movie => _movie;
 
-  fecthMovies() {
-    _movie = API().fecthMovie();
+  fecthMovie() {
+    _movie = API().fetchMovie();
   }
 }
