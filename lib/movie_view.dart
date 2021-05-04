@@ -11,6 +11,12 @@ class _MovieViewState extends State<MovieView> {
   final controller = MovieController();
 
   @override
+  void initState() {
+    super.initState();
+    controller.loadMovies();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Material(
       color: Colors.blue,
@@ -95,20 +101,6 @@ class _MovieViewState extends State<MovieView> {
                 }
                 return Container();
               }),
-          Container(
-            margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
-            padding: EdgeInsets.all(10),
-            child: ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    controller.loadMovies();
-                  });
-                },
-                child: Text(
-                  'Carregar Filmes',
-                  style: TextStyle(fontSize: 20),
-                )),
-          ),
         ],
       ),
     );
