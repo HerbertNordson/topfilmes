@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:topfilmes/colors.dart';
 import 'package:topfilmes/movie_controller.dart';
 import 'package:topfilmes/movie.dart';
 
@@ -19,10 +20,31 @@ class _MovieViewState extends State<MovieView> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.blue,
+      color: Colors.black,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Container(
+              height: 100,
+              alignment: Alignment.center,
+              color: Colors.black38,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image(
+                    width: 60,
+                    image: AssetImage('imagens/icone.png'),
+                  ),
+                  Text(
+                    'Lançamentos'.toUpperCase(),
+                    style: TextStyle(
+                        color: AppColors.gold,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              )),
           FutureBuilder<Movie>(
               future: controller.movie,
               builder: (context, snapshot) {
@@ -33,6 +55,7 @@ class _MovieViewState extends State<MovieView> {
                       itemBuilder: (context, index) {
                         var link = 'https://image.tmdb.org/t/p/w300' +
                             snapshot.data.result[index].urlImage;
+
                         return Card(
                           color: Colors.black,
                           margin: EdgeInsets.fromLTRB(50, 20, 50, 20),
@@ -45,6 +68,47 @@ class _MovieViewState extends State<MovieView> {
                                     fit: BoxFit.cover,
                                   ),
                                 ),
+                                Container(
+                                    width: 60,
+                                    height: 50,
+                                    margin: EdgeInsets.all(8),
+                                    child: Stack(
+                                      children: [
+                                        Container(
+                                          height: 60,
+                                          width: 50,
+                                          child: CircularProgressIndicator(
+                                            strokeWidth: 4,
+                                            value: snapshot
+                                                    .data.result[index].vote
+                                                    .toDouble() /
+                                                10,
+                                            backgroundColor: AppColors.silver,
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                                    AppColors.gold),
+                                          ),
+                                        ),
+                                        Center(
+                                            child: Row(children: [
+                                          Container(
+                                            margin:
+                                                EdgeInsets.fromLTRB(5, 0, 0, 0),
+                                            child: Image(
+                                              image: AssetImage(
+                                                  'imagens/estrela.png'),
+                                            ),
+                                          ),
+                                          Text(
+                                            snapshot.data.result[index].vote
+                                                .toString(),
+                                            style: TextStyle(
+                                                color: Colors.amber,
+                                                fontSize: 20),
+                                          ),
+                                        ]))
+                                      ],
+                                    )),
                                 Container(
                                   alignment: Alignment.topRight,
                                   margin: EdgeInsets.all(4),
@@ -70,21 +134,26 @@ class _MovieViewState extends State<MovieView> {
                                   height: 440,
                                   alignment: Alignment.bottomCenter,
                                   child: Container(
-                                      height: 40,
+                                      width: 300,
+                                      height: 50,
                                       decoration: BoxDecoration(
                                         color: Colors.black38,
                                       ),
-                                      child: Align(
-                                        alignment: Alignment.bottomCenter,
-                                        child: Text(
-                                          snapshot.data.result[index].title
-                                              .toUpperCase(),
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 30,
-                                          ),
-                                        ),
-                                      )),
+                                      child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              snapshot.data.result[index].title
+                                                  .toUpperCase(),
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ])),
                                 )
                               ],
                             ),
