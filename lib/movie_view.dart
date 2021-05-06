@@ -37,10 +37,10 @@ class _MovieViewState extends State<MovieView> {
                     image: AssetImage('imagens/icone.png'),
                   ),
                   Text(
-                    'Lançamentos'.toUpperCase(),
+                    'Top movies'.toUpperCase(),
                     style: TextStyle(
                         color: AppColors.gold,
-                        fontSize: 20,
+                        fontSize: 24,
                         fontWeight: FontWeight.bold),
                   ),
                 ],
