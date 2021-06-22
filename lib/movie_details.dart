@@ -44,6 +44,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                       Container(
                         width: MediaQuery.of(context).size.width,
                         height: MediaQuery.of(context).size.height * 0.9,
+                        constraints: BoxConstraints(maxWidth: 450),
                         child: Container(
                           width: MediaQuery.of(context).size.width,
                           height: MediaQuery.of(context).size.height * 0.9,
@@ -57,6 +58,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                         width: MediaQuery.of(context).size.width * 0.1,
                         height: MediaQuery.of(context).size.height * 0.06,
                         margin: EdgeInsets.fromLTRB(20, 30, 0, 0),
+                        constraints: BoxConstraints(maxWidth: 60),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(80),
                             color: AppColors.gold),
@@ -85,6 +87,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height * 0.1,
                     margin: EdgeInsets.fromLTRB(0, 0, 0, 20),
+                    constraints: BoxConstraints(maxWidth: 450),
                     child: FittedBox(
                         fit: BoxFit.contain,
                         child: Text(
@@ -97,12 +100,14 @@ class _MovieDetailsState extends State<MovieDetails> {
                   Container(
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height * 0.2,
+                    constraints: BoxConstraints(maxWidth: 450),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
                           width: MediaQuery.of(context).size.width * 0.35,
+                          constraints: BoxConstraints(maxWidth: 120),
                           padding: EdgeInsets.all(2),
                           child: Text(
                             "${parameters.data}",
@@ -115,6 +120,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                         ),
                         Container(
                           width: MediaQuery.of(context).size.width * 0.3,
+                          constraints: BoxConstraints(maxWidth: 120),
                           child: Text(
                             "${parameters.votos}" + " Score",
                             textAlign: TextAlign.center,
@@ -126,6 +132,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                         ),
                         Container(
                             width: MediaQuery.of(context).size.width * 0.2,
+                            constraints: BoxConstraints(maxWidth: 120),
                             child: TextButton(
                               onPressed: () {
                                 InternalStorage();
@@ -156,6 +163,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                   Container(
                     height: MediaQuery.of(context).size.height,
                     margin: EdgeInsets.fromLTRB(20, 20, 0, 0),
+                    constraints: BoxConstraints(maxWidth: 450),
                     child: Text(
                       "${parameters.descricao}",
                       textAlign: TextAlign.left,
