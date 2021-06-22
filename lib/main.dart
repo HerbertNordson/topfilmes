@@ -1,3 +1,5 @@
+import 'package:topfilmes/movie_details.dart';
+
 import 'movie_view.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Top Movies',
       home: MovieView(),
+      routes: {'Details': (context) => MovieDetails()},
     );
   }
 }

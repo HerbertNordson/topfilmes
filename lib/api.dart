@@ -17,8 +17,3 @@ class API {
     }
   }
 }
-/*'https://api.themoviedb.org',
-        '/3/movie/upcoming',
-        queryParamenters = {
-          'api_key': 'a5bc05fb630c9b7fdc560033345fa13e',
-        }*/

@@ -14,6 +14,7 @@ class Results {
   String title;
   String urlImage;
   String date;
+  String description;
   var vote;
 
   Results.fromJson(Map<String, dynamic> json) {
@@ -21,5 +22,6 @@ class Results {
     urlImage = json["poster_path"];
     date = json["release_date"];
     vote = json["vote_average"];
+    description = json["overview"];
   }
 }
