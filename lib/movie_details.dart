@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:topfilmes/colors.dart';
+import 'package:topfilmes/internal_storage.dart';
 import 'package:topfilmes/movie_view.dart';
 
 class MovieDetailsParameters {
@@ -9,9 +10,10 @@ class MovieDetailsParameters {
   var votos;
   String data;
   String descricao;
+  int id;
 
   MovieDetailsParameters(
-      this.imagem, this.titulo, this.votos, this.data, this.descricao);
+      this.imagem, this.titulo, this.votos, this.data, this.descricao, this.id);
 }
 
 class MovieDetails extends StatefulWidget {
@@ -126,6 +128,8 @@ class _MovieDetailsState extends State<MovieDetails> {
                             width: MediaQuery.of(context).size.width * 0.2,
                             child: TextButton(
                               onPressed: () {
+                                InternalStorage();
+
                                 showDialog(
                                     context: context,
                                     builder: (context) {

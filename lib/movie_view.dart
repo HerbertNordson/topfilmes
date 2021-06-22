@@ -231,7 +231,8 @@ class _MovieViewState extends State<MovieView> {
                                     snapshot.data.result[index].title,
                                     snapshot.data.result[index].vote,
                                     snapshot.data.result[index].date,
-                                    snapshot.data.result[index].description);
+                                    snapshot.data.result[index].description,
+                                    snapshot.data.result[index].id);
                                 Navigator.pushNamed(context, 'Details',
                                     arguments: parameters);
                               },

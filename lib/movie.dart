@@ -16,6 +16,7 @@ class Results {
   String date;
   String description;
   var vote;
+  int id;
 
   Results.fromJson(Map<String, dynamic> json) {
     title = json["title"];
@@ -23,5 +24,6 @@ class Results {
     date = json["release_date"];
     vote = json["vote_average"];
     description = json["overview"];
+    id = json["id"];
   }
 }

@@ -14,6 +14,7 @@ class MovieViewModel {
     model.fecthMovie();
     model.movie.then((value) => {
           streamFilmes.add(value),
+          model.saveUser(),
         });
   }
 }
